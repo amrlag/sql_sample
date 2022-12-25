@@ -123,3 +123,15 @@ FROM
 LIMIT 5
 OFFSET 1
 
+SELECT
+	*
+FROM
+	arme
+INNER JOIN typearme ON arme.idTypeArme=typearme.idTypeArme
+
+SELECT
+	arme.nom, arme.levelMin, arme.degat, typearme.libelle, typearme.estDistance
+FROM
+	arme
+INNER JOIN typearme ON arme.idTypeArme=typearme.idTypeArme
+
