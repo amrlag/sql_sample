@@ -95,3 +95,31 @@ WHERE
     7
 	
 
+SELECT
+	*
+FROM
+	arme
+WHERE
+	nom LIKE "%bois%"
+	
+SELECT
+	*
+FROM
+	personnage
+WHERE
+	idPersonnage IN(2,3,4,6) AND
+    level=10
+	
+SELECT
+	*
+FROM
+	personnage
+LIMIT 2
+
+SELECT
+	*
+FROM
+	personnage
+LIMIT 5
+OFFSET 1
+
