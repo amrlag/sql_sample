@@ -135,3 +135,24 @@ FROM
 	arme
 INNER JOIN typearme ON arme.idTypeArme=typearme.idTypeArme
 
+SELECT
+	personnage.nom, classe.nom
+FROM
+	personnage
+INNER JOIN classe ON classe.idClasse= personnage.idClasse
+
+
+/*ici, on voit bien que l'égalité n'est pas la même car la clé est présente dans deux tablles. Voir les liaisons entre les tables*/
+SELECT
+	p.nom, a.nom
+FROM
+	personnage p
+INNER JOIN arme a ON a.idTypeArme= p.idArmeUtilise
+
+/* double jointure*/
+SELECT
+	p.nom, a.nom, a.levelMin, a.degat, t.libelle AS "TYPE ARME", t.estDistance
+FROM
+	personnage p
+INNER JOIN typearme t ON t.idTypeArme=p.idArmeUtilise
+INNER JOIN arme a ON a.idArme=p.idArmeUtilise
