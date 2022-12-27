@@ -157,3 +157,29 @@ FROM
 INNER JOIN typearme t ON t.idTypeArme=p.idArmeUtilise
 INNER JOIN arme a ON a.idArme=p.idArmeUtilise
 
+/*Jointures et filtres*/
+
+SELECT
+	p.nom, p.level, a.nom, p.level
+FROM
+	arme a
+INNER JOIN dispose d ON d.idArme=a.idArme
+INNER JOIN personnage p ON p.idArmeUtilise=a.idArme
+
+SELECT
+	*
+FROM
+	arme
+INNER JOIN typearme ta ON ta.idTypeArme=arme.idTypeArme 
+WHERE
+	ta.estDistance=0
+	
+SELECT
+	a.nom AS "ARME UTILISEE", p.nom AS "PERSONNAGE", ta.libelle AS "TYPE ARME"
+FROM
+	personnage p
+INNER JOIN classe c ON p.idClasse=c.idClasse
+INNER JOIN arme a ON a.idArme=p.idArmeUtilise
+INNER JOIN typearme ta ON ta.idTypeArme=a.idTypeArme
+WHERE
+	c.nom="guerrier"
