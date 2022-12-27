@@ -5,3 +5,92 @@ FROM
 INNER JOIN p ON p.ID_P=spj.ID_P
 WHERE
 	p.COLOR="red"
+	
+SELECT
+	s.SNAME
+FROM
+	s
+INNER JOIN 
+	spj ON spj.ID_S=s.ID_S
+WHERE
+	spj.ID_P="P4"	
+	
+SELECT
+	DISTINCT j.JNAME
+FROM
+	j
+INNER JOIN 
+	spj ON spj.ID_J=j.ID_J
+WHERE
+	spj.ID_P="P3"
+	
+SELECT
+	 DISTINCT j.JNAME
+FROM
+	j
+INNER JOIN 
+	spj ON spj.ID_J=j.ID_J
+WHERE
+	spj.ID_S="s1"
+	
+SELECT
+	DISTINCT s.SNAME
+FROM
+	s
+INNER JOIN 
+	spj ON 
+    spj.ID_S=s.ID_S
+WHERE
+	spj.QTY BETWEEN
+    150 AND
+    250
+	
+/*ici on utilise 4 tables et 3 jointures !*/
+SELECT
+	 s.SNAME AS "NOM", p.PNAME AS "PIECE", j.JNAME AS "PROJET", spj.QTY AS "QTY"
+FROM
+	spj
+INNER JOIN s ON spj.ID_S=s.ID_S
+INNER JOIN p ON p.ID_P=spj.ID_P
+INNER JOIN j on j.ID_J=spj.ID_J
+
+SELECT
+	 s.SNAME AS "NOM", p.PNAME AS "PIECE", j.JNAME AS "PROJET", spj.QTY AS "QTY"
+FROM
+	spj
+INNER JOIN s ON spj.ID_S=s.ID_S
+INNER JOIN p ON p.ID_P=spj.ID_P
+INNER JOIN j on j.ID_J=spj.ID_J
+WHERE
+	s.CITY="paris"
+	
+SELECT
+	 DISTINCT j.CITY
+FROM
+	j
+INNER JOIN spj ON spj.ID_J=j.ID_J
+INNER JOIN s on s.ID_S=spj.ID_S
+WHERE
+	s.SNAME="Adams"
+	
+SELECT
+	 DISTINCT P.PNAME
+FROM
+	P
+INNER JOIN spj ON SPJ.ID_P=p.ID_P
+INNER JOIN s ON s.ID_S=spj.ID_S
+WHERE
+	P.WEIGHT<18 AND
+    (s.CITY="Rome" OR
+     s.CITY="London")
+	 
+SELECT
+	DISTINCT p.ID_P
+FROM
+	p
+INNER JOIN spj ON spj.ID_P=p.ID_P
+INNER JOIN s ON s.ID_S=spj.ID_S 
+WHERE
+	p.CITY="London" AND
+    s.CITY="London"
+
