@@ -156,3 +156,4 @@ FROM
 	personnage p
 INNER JOIN typearme t ON t.idTypeArme=p.idArmeUtilise
 INNER JOIN arme a ON a.idArme=p.idArmeUtilise
+
