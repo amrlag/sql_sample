@@ -183,3 +183,34 @@ INNER JOIN arme a ON a.idArme=p.idArmeUtilise
 INNER JOIN typearme ta ON ta.idTypeArme=a.idTypeArme
 WHERE
 	c.nom="guerrier"
+	
+SELECT
+	*
+FROM
+	personnage p 
+INNER JOIN dispose d ON d.idPersonnage=p.idPersonnage
+INNER JOIN arme a ON a.idArme=d.idArme
+INNER JOIN typearme ta ON ta.idTypeArme=a.idTypeArme
+WHERE
+	p.level=10
+ORDER BY p.idPersonnage;
+
+SELECT
+	AVG(a.degat)
+FROM
+	 arme a 
+INNER JOIN typearme ta ON ta.idTypeArme=a.idTypeArme
+WHERE
+	ta.estDistance=1
+	
+SELECT
+	DISTINCT p.nom AS "NOM PERSONNAGE"
+FROM
+	 personnage p 
+INNER JOIN dispose d ON d.idPersonnage=p.idPersonnage
+INNER JOIN arme a ON a.idArme=d.idArme
+INNER JOIN typearme ta ON ta.idTypeArme=a.idTypeArme
+WHERE
+	ta.libelle LIKE "a%"	
+ORDER BY p.nom
+
