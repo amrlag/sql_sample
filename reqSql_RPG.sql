@@ -214,3 +214,8 @@ WHERE
 	ta.libelle LIKE "a%"	
 ORDER BY p.nom
 
+/*LES JOINTURES EXTERNES
+je passe ce module, je vais faire del'auto-jointure
+*/
+
+
