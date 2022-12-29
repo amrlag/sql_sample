@@ -100,6 +100,7 @@ WHERE
     p.CITY<>j.CITY AND
     j.CITY<>s.CITY
 	
+/*ici, ne pas oublier de préciser la liaison avec le fournisseur dans le where sinon, ce n'est pas bon*/	
 SELECT
 	DISTINCT spj1.ID_S
 FROM
